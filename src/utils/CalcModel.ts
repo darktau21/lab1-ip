@@ -180,6 +180,9 @@ export class CalcModel {
     const routeIntensities = this.routes.map((route, i) => ({
       route: i,
       intensity: normRouteFailures[i].prob * this.msgIntensity,
+      formula: `${normRouteFailures[i].prob.toFixed(3)} * ${
+        this.msgIntensity
+      } =  ${(normRouteFailures[i].prob * this.msgIntensity).toFixed(3)}`,
     }));
 
     routeIntensities.forEach((routeIntensity) => {
@@ -299,6 +302,7 @@ export class CalcModel {
       nodeMsgAvgCountTable: this.nodeMsgAvgCountTable,
       nodeAvgTimeTable: this.nodeAvgTimeTable,
       nodeIntensityTable: this.nodeIntensityTable,
+      routeIntensities,
     };
   }
 }

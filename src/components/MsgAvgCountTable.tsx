@@ -38,17 +38,21 @@ const MsgAvgCountTable = ({
                   <TableBody>
                     <TableRow>
                       <TableCell>Узел сети</TableCell>
-                      {item.nodes.map((node, j) => (
-                        <TableCell key={j}>{node.nodeId}</TableCell>
-                      ))}
+                      {item.nodes.map((node, j) =>
+                        j === 0 ? null : (
+                          <TableCell key={j}>{node.nodeId}</TableCell>
+                        )
+                      )}
                     </TableRow>
                     <TableRow>
                       <TableCell>Средняя величина очереди</TableCell>
-                      {item.nodes.map((channel, j) => (
-                        <TableCell key={j}>
-                          {channel.avgCount.toFixed(3)}
-                        </TableCell>
-                      ))}
+                      {item.nodes.map((channel, j) =>
+                        j === 0 ? null : (
+                          <TableCell key={j}>
+                            {channel.avgCount.toFixed(3)}
+                          </TableCell>
+                        )
+                      )}
                     </TableRow>
                   </TableBody>
                 </Table>
@@ -61,11 +65,13 @@ const MsgAvgCountTable = ({
         <>
           <h2>Маршрут {item.route + 1}</h2>
           <List>
-            {item.nodes.map((node, j) => (
-              <ListItem key={j}>
-                <ListItemText primary={`n${j + 1} = ${node.formula}`} />
-              </ListItem>
-            ))}
+            {item.nodes.map((node, j) =>
+              j === 0 ? null : (
+                <ListItem key={j}>
+                  <ListItemText primary={`n${j + 1} = ${node.formula}`} />
+                </ListItem>
+              )
+            )}
           </List>
         </>
       ))}

@@ -34,9 +34,12 @@ const Calcs = ({ model }: { model: Model }) => {
   const normRouteFailures = calcModel.calcNormRoutesFailures(routesFailure);
   const linksAvgTime = calcModel.calcAvgLinkTransferTime();
   const avgTransTimeTable = calcModel.calcAvgTransferTime();
-  const { nodeMsgAvgCountTable, nodeAvgTimeTable, nodeIntensityTable } =
-    calcModel.calcAll();
-  console.log(calcModel.calcRouteTime());
+  const {
+    nodeMsgAvgCountTable,
+    nodeAvgTimeTable,
+    nodeIntensityTable,
+    routeIntensities,
+  } = calcModel.calcAll();
 
   return (
     <>
@@ -81,6 +84,16 @@ const Calcs = ({ model }: { model: Model }) => {
         </List>
 
         <AvgTransferTimeTable avgTransferTimeTable={avgTransTimeTable} />
+      </Box>
+      <Box>
+        <h2>Распределение интенсивностей</h2>
+        <List>
+          {routeIntensities.map((item, i) => (
+            <ListItem key={i}>
+              <ListItemText primary={`a${i + 1} = ${item.formula}`} />
+            </ListItem>
+          ))}
+        </List>
       </Box>
       <Box>
         <h2>Число сообщений в очереди</h2>

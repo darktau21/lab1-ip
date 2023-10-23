@@ -38,15 +38,21 @@ const AvgTimeTable = ({
                   <TableBody>
                     <TableRow>
                       <TableCell>Узел сети</TableCell>
-                      {item.nodes.map((node, j) => (
-                        <TableCell key={j}>{node.nodeId}</TableCell>
-                      ))}
+                      {item.nodes.map((node, j) =>
+                        j === 0 ? null : (
+                          <TableCell key={j}>{node.nodeId}</TableCell>
+                        )
+                      )}
                     </TableRow>
                     <TableRow>
                       <TableCell>Время задержки</TableCell>
-                      {item.nodes.map((node, j) => (
-                        <TableCell key={j}>{node.avgTime.toFixed(3)}</TableCell>
-                      ))}
+                      {item.nodes.map((node, j) =>
+                        j === 0 ? null : (
+                          <TableCell key={j}>
+                            {node.avgTime.toFixed(3)}
+                          </TableCell>
+                        )
+                      )}
                     </TableRow>
                   </TableBody>
                 </Table>
@@ -59,11 +65,13 @@ const AvgTimeTable = ({
         <>
           <h2>Маршрут {item.route + 1}</h2>
           <List>
-            {item.nodes.map((node, j) => (
-              <ListItem key={j}>
-                <ListItemText primary={`w${j + 1} = ${node.formula}`} />
-              </ListItem>
-            ))}
+            {item.nodes.map((node, j) =>
+              j === 0 ? null : (
+                <ListItem key={j}>
+                  <ListItemText primary={`w${j + 1} = ${node.formula}`} />
+                </ListItem>
+              )
+            )}
           </List>
         </>
       ))}

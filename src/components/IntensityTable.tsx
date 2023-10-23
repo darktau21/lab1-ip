@@ -38,17 +38,21 @@ const IntensityTable = ({
                   <TableBody>
                     <TableRow>
                       <TableCell>Узел сети</TableCell>
-                      {item.nodes.map((node, j) => (
-                        <TableCell key={j}>{node.nodeId}</TableCell>
-                      ))}
+                      {item.nodes.map((node, j) =>
+                        j === 0 ? null : (
+                          <TableCell key={j}>{node.nodeId}</TableCell>
+                        )
+                      )}
                     </TableRow>
                     <TableRow>
                       <TableCell>Интенсивность</TableCell>
-                      {item.nodes.map((node, j) => (
-                        <TableCell key={j}>
-                          {node.intensity.toFixed(3)}
-                        </TableCell>
-                      ))}
+                      {item.nodes.map((node, j) =>
+                        j === 0 ? null : (
+                          <TableCell key={j}>
+                            {node.intensity.toFixed(3)}
+                          </TableCell>
+                        )
+                      )}
                     </TableRow>
                   </TableBody>
                 </Table>
@@ -61,15 +65,17 @@ const IntensityTable = ({
         <>
           <h2>Маршрут {item.route + 1}</h2>
           <List>
-            {item.nodes.map((node, j) => (
-              <ListItem key={j}>
-                <ListItemText
-                  primary={`a${j + 1} = ${
-                    node.formula
-                  } = ${node.intensity.toFixed(3)}`}
-                />
-              </ListItem>
-            ))}
+            {item.nodes.map((node, j) =>
+              j === 0 ? null : (
+                <ListItem key={j}>
+                  <ListItemText
+                    primary={`a${j + 1} = ${
+                      node.formula
+                    } = ${node.intensity.toFixed(3)}`}
+                  />
+                </ListItem>
+              )
+            )}
           </List>
         </>
       ))}
