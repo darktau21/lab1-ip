@@ -1,10 +1,10 @@
 import { Link, Model, Route, Node } from "../store";
 
 export class CalcModel {
-  private readonly model: Model;
+  // private readonly model: Model;
   private readonly avgMsgLength: number;
   private readonly msgIntensity: number;
-  private readonly minTime: number;
+  // private readonly minTime: number;
   private readonly nodes: Node[];
   private readonly links: Link[];
   private readonly routes: Route[];
@@ -32,11 +32,11 @@ export class CalcModel {
   }[] = [];
 
   constructor(model: Model) {
-    this.model = model;
+    // this.model = model;
 
     this.avgMsgLength = model.avgMsgLength;
     this.msgIntensity = model.msgIntensity;
-    this.minTime = model.minTime;
+    // this.minTime = model.minTime;
     this.nodes = model.nodes ?? [];
     this.links = model.links ?? [];
     this.routes = model.routes ?? [];
@@ -177,7 +177,7 @@ export class CalcModel {
     );
     const normRouteFailures = this.calcNormRoutesFailures(routeFailures);
 
-    const routeIntensities = this.routes.map((route, i) => ({
+    const routeIntensities = this.routes.map((_, i) => ({
       route: i,
       intensity: normRouteFailures[i].prob * this.msgIntensity,
       formula: `${normRouteFailures[i].prob.toFixed(3)} * ${

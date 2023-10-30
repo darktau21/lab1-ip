@@ -64,7 +64,7 @@ const AvgTransferTimeTable = ({
             {item.channels.map((channel, j) => (
               <ListItem key={j}>
                 <ListItemText
-                  primary={`t${j + 1} = ${
+                  primary={`t${channel.linkId} = ${
                     channel.formula
                   } = ${channel.avgTransTime.toFixed(3)}`}
                 />

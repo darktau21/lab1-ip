@@ -68,7 +68,7 @@ const MsgAvgCountTable = ({
             {item.nodes.map((node, j) =>
               j === 0 ? null : (
                 <ListItem key={j}>
-                  <ListItemText primary={`n${j + 1} = ${node.formula}`} />
+                  <ListItemText primary={`n${node.nodeId} = ${node.formula}`} />
                 </ListItem>
               )
             )}

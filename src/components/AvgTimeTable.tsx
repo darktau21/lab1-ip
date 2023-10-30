@@ -68,7 +68,7 @@ const AvgTimeTable = ({
             {item.nodes.map((node, j) =>
               j === 0 ? null : (
                 <ListItem key={j}>
-                  <ListItemText primary={`w${j + 1} = ${node.formula}`} />
+                  <ListItemText primary={`w${node.nodeId} = ${node.formula}`} />
                 </ListItem>
               )
             )}

@@ -40,7 +40,9 @@ const RouteMsgDeliveryTable = ({
         {routeMsgDeliveryTable.map((item, i) => (
           <ListItem key={i}>
             <ListItemText
-              primary={`t${i + 1} = ${item.formula} = ${item.time.toFixed(3)}`}
+              primary={`t${item.route + 1} = ${
+                item.formula
+              } = ${item.time.toFixed(3)}`}
             />
           </ListItem>
         ))}

@@ -69,7 +69,7 @@ const IntensityTable = ({
               j === 0 ? null : (
                 <ListItem key={j}>
                   <ListItemText
-                    primary={`a${j + 1} = ${
+                    primary={`a${node.nodeId} = ${
                       node.formula
                     } = ${node.intensity.toFixed(3)}`}
                   />
